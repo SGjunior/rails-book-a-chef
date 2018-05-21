@@ -1,2 +1,24 @@
-<h1>Listings#index</h1>
-<p>Find me in app/views/listings/index.html.erb</p>
+<div class="app">
+  <div class="main">
+    <div class="listings">
+      <!-- Generate the cards in here -->
+        <% @listings.each do |listing| %>
+          <div class="listing">
+            <%= link_to listing_path(listing.id) do %>
+            <div class="listing-picture" style="background-color: grey"></div> <!-- TODO : add pictures -->
+            <% end %>
+            <div class="listing-title"><%= listing.user.name %></div>
+          </div>
+        <% end %>
+    </div>
+  </div>
+  <div class="map">
+    <!-- Generate the map in here -->
+    <p>this is the map</p>
+
+
+
+
+
+  </div>
+</div>

@@ -1,6 +1,7 @@
 class ListingsController < ApplicationController
   def index
     #INDEX
+    @listings = Listing.all
   end
 
   def show
