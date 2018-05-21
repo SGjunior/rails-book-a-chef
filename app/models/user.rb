@@ -25,7 +25,7 @@ def strip_email
 end
 
 def send_welcome_email
-  FakeMailer.instance.mail(email, "Welcome #{username}!")
+  # FakeMailer.instance.mail(email, "Welcome #{username}!")
 end
 
 def age
