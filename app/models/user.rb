@@ -29,10 +29,9 @@ def send_welcome_email
 end
 
 def age
-    if age > 99
-      errors.add(:age, "can't be more than 99 yrs to book")
-    elsif age < 18
-      errors.add(:age, "can't be less than 18 yrs old")
-    end
+  if age > 99
+    errors.add(:age, "can't be more than 99 yrs to book")
+  elsif age < 18
+    errors.add(:age, "can't be less than 18 yrs old")
   end
 end
