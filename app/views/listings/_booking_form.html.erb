@@ -1,6 +1,8 @@
+<h3>we are in the booking formm</h3>
 <div class="row-padded">
   <div class="col-sm-6 offset-sm-3 text-center padded-mini">
     <h1>Make a reservation</h1>
+      <% @booking = Booking.new %>
       <%= form_for @booking do |f| %>
       <%= f.error_notification %>
       <%= f.input :reservation_date %>
