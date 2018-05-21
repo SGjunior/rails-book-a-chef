@@ -6,36 +6,41 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Listing.destroy_all
+User.destroy_all
+
 10.times do
 
   user = User.new(
-    name: Faker::SiliconValley.character,
+    name: "#{Faker::SiliconValley.character}#{rand(0..10000000)}",
     bio: Faker::SiliconValley.quote,
-    email: "#{Faker::SiliconValley.character.delete(" ")}@gmail.com",
+    email: "#{Faker::SiliconValley.character.delete(" ")}#{rand(0..100000)}@gmail.com",
+    password: "password",
     age: rand(18..50),
     photo_url: ' '
     )
 
-  user.save
+  user.save!
 
 end
 
 20.times do
 
   user = User.new(
-    name: Faker::SiliconValley.character,
+    name: "#{Faker::SiliconValley.character}#{rand(0..10000000)}",
     bio: Faker::SiliconValley.quote,
-    email: "#{Faker::SiliconValley.character.delete(" ")}@gmail.com",
+    email: "#{Faker::SiliconValley.character.delete(" ")}#{rand(0..100000)}@gmail.com",
+    password: "password",
     age: rand(18..50),
     photo_url: ' '
     )
 
-  user.save
+  user.save!
 
 
   listing = Listing.new(
-    max_party_size: 10,
-    min_party_size: 2,
+    max_party_size: rand(5..10),
+    min_party_size: rand(2..4),
     price_per_person: rand(10..50),
     cuisine: Faker::SiliconValley.invention,
     description: Faker::SiliconValley.motto,
