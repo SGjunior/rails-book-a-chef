@@ -9,10 +9,6 @@ class User < ApplicationRecord
   before_validation :strip_email
   after_create :send_welcome_email
 
-
-
-
-
 #   validates :name, presence: true, uniqueness: true
 #   validates :email, presence: true, uniqueness: true, format: {
     # with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -35,7 +31,7 @@ end
 def age
     if age > 99
       errors.add(:age, "can't be more than 99 yrs to book")
-    elsif volume < 18
+    elsif age < 18
       errors.add(:age, "can't be less than 18 yrs old")
     end
   end
