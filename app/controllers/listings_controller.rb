@@ -5,7 +5,7 @@ class ListingsController < ApplicationController
   end
 
   def show
-    #SHOW
+    @listing = Listing.find(params[:id])
   end
 
   def new
@@ -22,4 +22,13 @@ class ListingsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  # TODO - determine if booking should be instantiated here and called in to show method
+
+  def set_booking
+    @booking = Booking.new
+  end
+
 end

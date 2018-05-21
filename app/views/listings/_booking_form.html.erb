@@ -1,0 +1,12 @@
+<div class="row-padded">
+  <div class="text-center padded-mini">
+    <h1>Make a reservation</h1>
+      <% @booking = Booking.new(listing_id: @listing.id) %>
+      <%= simple_form_for [@listing, @booking] do |f| %>
+      <%= f.input :reservation_date %>
+      <%= f.input :reservation_time %>
+      <%= f.input :guests_count %>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
