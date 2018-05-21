@@ -1,0 +1,11 @@
+<div class="row-padded">
+  <div class="col-sm-6 offset-sm-3 text-center padded-mini">
+    <h1>Make a reservation</h1>
+      <%= form_for @booking do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :reservation_date %>
+      <%= f.input :reservation_time %>
+      <%= f.submit class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>
