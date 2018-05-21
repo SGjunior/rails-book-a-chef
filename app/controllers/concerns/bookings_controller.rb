@@ -12,14 +12,14 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @booking.listing = @listing
     @booking.user = @user
-      if @booking.save
-        redirect_to root
-      else
-        render "new"
-      end
+    if @booking.save!
+      redirect_to root_path
+    else
+      render "new"
+    end
   end
 
   def destroy
@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def booking_params
