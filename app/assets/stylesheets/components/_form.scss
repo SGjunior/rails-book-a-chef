@@ -1,0 +1,43 @@
+.form-control.mx-1.date.required.form-inline {
+  display: inline-block;
+  width: 32%;
+}
+
+.form-control.mx-1.time.required {
+  display: inline-block;
+  width:  32%;
+  /* justify-content: center */;
+}
+
+.mdl-card__title-text {
+  /* text-align: center */;
+}
+.form-holder {
+  /* text-align: center */;
+}
+
+.form-control.numeric.integer.required {
+  width: 50%;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sticky {
+  position: fixed;
+  width: 100%;
+}
+
+#sticky-form {
+  width: 32%;
+  top: 10%;
+  text-align: center;
+  justify-content: center;
+  background-color: white;
+  opacity: 0.8;
+}
+
+.form-head {
+  text-align: center !important;
+  margin: 0px auto !important;
+}
