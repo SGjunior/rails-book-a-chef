@@ -3,19 +3,23 @@ class ListingsController < ApplicationController
 
   def index
     #INDEX
-    @listings = Listing.all
+    @listings = policy_scope(Listing).all # ????? -> wtf is this for
+    # @listings = Listing.all
   end
 
   def show
     @listing = Listing.find(params[:id])
+    authorize @listing
   end
 
   def new
     @listing = Listing.new
+    authorize @listing
   end
 
   def create
     @listing = Listing.new(listing_params)
+    authorize @listing
 
     if @listing.save!
       redirect_to listing_path(@listing.id)
@@ -25,12 +29,16 @@ class ListingsController < ApplicationController
   end
 
   def update
+    authorize @listing
   end
 
   def edit
+    @listing = Listing.find(params[:id])
+    authorize @listing
   end
 
   def destroy
+    authorize @listing
   end
 
   private
