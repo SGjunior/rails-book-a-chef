@@ -14,23 +14,23 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <div id="container">
+       <div id="body">
+            <%= render 'shared/navbar' %>
+
+            <!-- Code for test purposes -->
+               <!-- <p class="notice"><%= notice %></p> -->
+               <!-- <p class="alert"><%= alert %></p> -->
+            <!-- Code for test purposes -->
+
+            <%= yield %>
+       </div>
+       <div id="footer">
+         <%= render 'shared/footer' %>
+       </div>
+    </div>
 
 
-
-
-    <!-- todo : add navbar -->
-    <%= render 'shared/navbar' %>
-
-    <!-- Code for test purposes -->
-       <!-- <p class="notice"><%= notice %></p> -->
-       <!-- <p class="alert"><%= alert %></p> -->
-    <!-- Code for test purposes -->
-
-    <%= yield %>
-
-
-    <!-- todo : add footer -->
-    <%= render 'shared/footer' %>
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
