@@ -1,35 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="banner" style="background-image: linear-gradient(-225deg, #efc64e78 0%, rgba(85, 92, 97, 0.35) 50%), url('<%= image_path 'dumplings-bg.jpg'%>')">
+    <div class="banner">
+      <img <%=image_tag('dumplings-bg.jpg', class:"img-responsive", alt:"Responsive image")%>
     </div>
   </div>
-  <h1>show page</h2>
 
   <div class="row">
-    <div class="listing-description col-sm-8">
-      <div class="table-responsive">
-        <table>
+    <div class="listing-description col-sm-9">
+        <table class="table table-responsive table-hover">
           <thead>
             <tr><h2>Listing Info</h2></tr>
           </thead>
           <tbody>
-            <tr>
-              <tr><%= @listing.min_party_size %></tr>
-              <tr><%= @listing.max_party_size %></tr>
-              <tr><%= @listing.price_per_person %></tr>
-              <tr><%= @listing.description %></tr>
-              <tr><%= @listing.user.name %></tr>
-              <tr><%= @listing.cuisine %></tr>
-            </tr>
+            <tr><td>Your host: <%= @listing.user.name %></td></tr>
+            <tr><td><%= @listing.description %></td></tr>
+            <tr><td>Cuisine: <%= @listing.cuisine %></td></tr>
+            <tr><td>Price (per person): $<%= @listing.price_per_person %></td></tr>
+            <tr><td>Minimum party size: <%= @listing.min_party_size %> people</td></tr>
+            <tr><td>Maximum party size:<%= @listing.max_party_size %></td></tr>
           </tbody>
          </table>
-      </div>
     </div>
 
-    <div class="booking-form col-sm-4">
+    <div class="form-group col-sm-3">
       <%= render "booking_form" %>
     </div>
-
-
   </div>
 </div>
+
+
+  <!--    style="background-image: linear-gradient(-225deg, #efc64e78 0%, rgba(85, 92, 97, 0.35) 50%), url(' image_path 'dumplings-bg.jpg'%>')"> -->
