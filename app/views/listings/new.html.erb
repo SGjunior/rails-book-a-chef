@@ -1,2 +1,33 @@
-<h1>Listings#new</h1>
-<p>Find me in app/views/listings/new.html.erb</p>
+
+<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+<h2>Create your listing!</h2>
+
+<%= form_for @listing do |f|  %>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, { class: 'form-control', autofocus: 'autofocus' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :cuisine %>
+    <%= f.text_field :cuisine, { class: 'form-control' } %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :min_party_size %>
+    <%= f.number_field :min_party_size, { class: 'form-control' } %>
+    <%= f.label :max_party_size %>
+    <%= f.number_field :max_party_size, { class: 'form-control' } %>
+  </div>
+  <div class="form-group">
+    <%= f.label :price_per_person %>
+    <%= f.number_field :price_per_person, { class: 'form-control' } %>
+  </div>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <%= f.submit 'Create Listing', { class: 'btn btn-success float-left', style: 'width: 150px' } %>
+
+<% end %>
+
+</div>

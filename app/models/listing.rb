@@ -8,6 +8,6 @@ class Listing < ApplicationRecord
   validates :cuisine, presence: true
   validates :description, presence: true
   validates :user_id, presence: true
-  validates :lng, presence: true
-  validates :lat, presence: true
+  # validates :lng, presence: true
+  # validates :lat, presence: true
 end
