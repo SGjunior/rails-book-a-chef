@@ -1,10 +1,10 @@
-<div class="mdl-card row-padded">
-  <div class="mdl-card__title text-center padded-mini">
+<div class="mdl-card--borderrow-padded">
+  <div class="mdl-card__title padded-mini">
     <h2 class="mdl-card__title-text">Make a reservation</h2>
   </div>
       <% @booking = Booking.new(listing_id: @listing.id) %>
       <%= simple_form_for [@listing, @booking] do |f| %>
-    <div class="mdl-card__actions">
+    <div class="mdl-card__actions form-holder">
       <%= f.input :reservation_date, :input_html => { class: "form-inline"} %>
       <%= f.input :reservation_time %>
       <%= f.input :guests_count %>
