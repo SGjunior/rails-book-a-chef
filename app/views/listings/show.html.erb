@@ -1,32 +1,57 @@
-<div class="container">
-  <div class="row">
-    <div class="banner">
-      <img <%=image_tag('dumplings-bg.jpg', class:"img-responsive", alt:"Responsive image")%>
+<div class="content">
+    <div class="banner w-100">
+      <img <%=cl_image_tag(@listing.photo, class:"img-responsive", alt:"Responsive image")%>
     </div>
   </div>
 
   <div class="row">
-    <div class="listing-description col-sm-9">
-        <table class="table table-responsive table-hover">
-          <thead>
-            <tr><h2>Listing Info</h2></tr>
-          </thead>
-          <tbody>
-            <tr><td>Your host: <%= @listing.user.name %></td></tr>
-            <tr><td><%= @listing.description %></td></tr>
-            <tr><td>Cuisine: <%= @listing.cuisine %></td></tr>
-            <tr><td>Price (per person): $<%= @listing.price_per_person %></td></tr>
-            <tr><td>Minimum party size: <%= @listing.min_party_size %> people</td></tr>
-            <tr><td>Maximum party size:<%= @listing.max_party_size %></td></tr>
-          </tbody>
-         </table>
+    <div class="listing-description col-sm-8">
+     <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+                <h4 class="mdl-cell mdl-cell--12-col">Listing Info</h4>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>Your host: <%= @listing.user.name %></h5>
+                  <p><%= @listing.description %></p>
+                </div>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5>Cuisine: <%=@listing.cuisine%></h5>
+                </div>
+                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+                  <div class="section__circle-container__circle mdl-color--primary"></div>
+                </div>
+                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
+                  <h5><%=@listing.min_party_size%>to <%=@listing.max_party_size%> people</h5>
+                  <p>Price: $<%=@listing.price_per_person%> per person</p>
+                </div>
+              </div>
+              <div class="mdl-card__actions">
+                <a href="#" class="mdl-button">Find out more about your chef!</a>
+              </div>
+            </div>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
+              <li class="mdl-menu__item">Save</li>
+              <li class="mdl-menu__item" disabled>Edit</li>
+            </ul>
+          </section>
     </div>
 
-    <div class="form-group col-sm-3">
-      <%= render "booking_form" %>
+    <div class="form-group col-sm-4">
+     <%= render "booking_form" %>
     </div>
   </div>
 </div>
 
 
   <!--    style="background-image: linear-gradient(-225deg, #efc64e78 0%, rgba(85, 92, 97, 0.35) 50%), url(' image_path 'dumplings-bg.jpg'%>')"> -->
+
+

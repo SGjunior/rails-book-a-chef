@@ -8,7 +8,7 @@
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-
+    <link rel="stylesheet" href="https://cdn.rawgit.com/tonystar/bootstrap-float-label/v3.0.1/dist/bootstrap-float-label.min.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
@@ -16,7 +16,9 @@
   <body>
     <div id="container">
        <div id="body">
-            <%= render 'shared/navbar' %>
+        <div class="header-top">
+          <%= render 'shared/navbar' %>
+        </div>
 
             <!-- Code for test purposes -->
                <!-- <p class="notice"><%= notice %></p> -->
