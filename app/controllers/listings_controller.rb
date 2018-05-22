@@ -21,7 +21,7 @@ class ListingsController < ApplicationController
     @listing = Listing.new(listing_params)
     authorize @listing
 
-    if @listing.save!
+    if @listing.save
       redirect_to listing_path(@listing.id)
     else
       render :new
@@ -46,7 +46,7 @@ class ListingsController < ApplicationController
   # TODO - determine if booking should be instantiated here and called in to show method
 
   def listing_params
-    params.require(:listing).permit(:description, :cuisine, :min_party_size, :max_party_size, :price_per_person, :user_id, :lng, :lat)
+    params.require(:listing).permit(:description, :cuisine, :min_party_size, :max_party_size, :price_per_person, :user_id, :lng, :lat, :photo)
   end
 
   def set_booking
