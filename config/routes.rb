@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :listings do
     resources :bookings, { only: [:create, :new, :index, :show, :destroy] }
   end
+
+  get '/dashboard', to: 'user#index', as: 'user_dashboard'
 end
