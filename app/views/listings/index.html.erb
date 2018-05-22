@@ -5,7 +5,16 @@
         <% @listings.each do |listing| %>
           <div class="listing">
             <%= link_to listing_path(listing.id) do %>
-            <div class="listing-picture" style="background-color: grey"></div> <!-- TODO : add pictures -->
+
+              <% unless listing.id == 26 %>
+                <div class="listing-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path("vpfnrp9tylwfdwwiq88j",
+          width: 400, height: 300, crop: :fill) %>');">
+                </div>
+              <% else %>
+                <div class="listing-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+               url('<%= cl_image_path listing.photo, height: 300, width: 400, crop: :fill %>')">
+                </div>
+              <% end %>
             <% end %>
             <div class="listing-title"><%= listing.user.name %></div>
           </div>
@@ -15,10 +24,6 @@
   <div class="map">
     <!-- Generate the map in here -->
     <p>this is the map</p>
-
-
-
-
 
   </div>
 </div>
