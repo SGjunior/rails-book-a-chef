@@ -1,6 +1,7 @@
-<div class="mdl-card--borderrow-padded">
+<div id="sticky-form" style="width: 32%;">
+<div class="mdl-card--border row-padded" >
   <div class="mdl-card__title padded-mini">
-    <h2 class="mdl-card__title-text">Make a reservation</h2>
+    <h2 class="mdl-card__title-text form-head">Make a reservation</h2>
   </div>
       <% @booking = Booking.new(listing_id: @listing.id) %>
       <%= simple_form_for [@listing, @booking] do |f| %>
@@ -12,5 +13,6 @@
     <% end %>
     </div>
   </div>
+</div>
 </div>
 
