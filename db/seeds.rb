@@ -16,8 +16,7 @@ User.destroy_all
     bio: Faker::SiliconValley.quote,
     email: "#{Faker::SiliconValley.character.delete(" ")}#{rand(0..100000)}@gmail.com",
     password: "password",
-    age: rand(18..50),
-    photo_url: ' '
+    age: rand(18..50)
     )
 
   user.save!
@@ -31,8 +30,7 @@ end
     bio: Faker::SiliconValley.quote,
     email: "#{Faker::SiliconValley.character.delete(" ")}#{rand(0..100000)}@gmail.com",
     password: "password",
-    age: rand(18..50),
-    photo_url: ' '
+    age: rand(18..50)
     )
 
   user.save!
