@@ -5,6 +5,22 @@
 
 }
 
+.listing.mdl-card a {
+  text-decoration: none;
+}
+
+.listing-title.mdl-card__title-text {
+  color: white;
+}
+
+.mdl-card__menu .mdl-button .material-icons {
+  color: white;
+}
+
+.mdl-card__menu-2 {
+  top: 40px !important;
+}
+
 .listing-picture {
   height: 200px;
   background-size: cover;

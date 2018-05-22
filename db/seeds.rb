@@ -9,21 +9,21 @@
 Listing.destroy_all
 User.destroy_all
 
-10.times do
+5.times do
 
   user = User.new(
-    name: "#{Faker::SiliconValley.character}#{rand(0..10000000)}",
+    name: "#{Faker::SiliconValley.character}",
     bio: Faker::SiliconValley.quote,
     email: "#{Faker::SiliconValley.character.delete(" ")}#{rand(0..100000)}@gmail.com",
     password: "password",
     age: rand(18..50)
     )
 
-  user.save!
+  user.save
 
 end
 
-20.times do
+5.times do
 
   user = User.new(
     name: "#{Faker::SiliconValley.character}#{rand(0..10000000)}",
@@ -33,7 +33,7 @@ end
     age: rand(18..50)
     )
 
-  user.save!
+  user.save
 
 
   listing = Listing.new(
