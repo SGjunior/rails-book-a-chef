@@ -1,27 +1,121 @@
 <div class="app">
   <div class="main">
+    <div class="mdl-layout__header-row" style="margin-top: 10px;">
+      <div class="mdl-layout-spacer"></div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+        <label class="mdl-button mdl-js-button mdl-button--icon"
+               for="fixed-header-drawer-exp">
+          <i class="material-icons" style="font-size: 30px !important;">search</i>
+        </label>
+        <div class="mdl-textfield__expandable-holder" style="width: 75vw !important;">
+            <input class="mdl-textfield__input" type="text" name="searchBar"
+                 id="fixed-header-drawer-exp" placeholder=" Search . . ." autofocus>
+        </div>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 4vw !important; margin-left: 15px !important;">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="max_price">
+        <label class="mdl-textfield__label" for="max_price">Max $</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+      </div>
+
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width: 4vw !important; margin: 0px 15px !important;">
+        <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="person_count">
+        <label class="mdl-textfield__label" for="person_count">Persons</label>
+        <span class="mdl-textfield__error">Input is not a number!</span>
+      </div>
+
+
+    </div>
     <div class="listings">
       <!-- Generate the cards in here -->
         <% @listings.each do |listing| %>
-          <div class="listing">
+          <div class="listing mdl-card mdl-shadow--2dp" listingdescription="<%= listing.user.name %><%= listing.description %> <%= listing.cuisine %>" listingppp="<%= listing.price_per_person %>" minpeople="<%= listing.min_party_size %>" maxpeople="<%= listing.max_party_size %>">
             <%= link_to listing_path(listing.id) do %>
-              <% if listing.photo.url.nil? %>
-                <div class="listing-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://loremflickr.com/320/240');">
-                </div>
-              <% else %>
-                <div class="listing-picture" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-               url('<%= cl_image_path listing.photo, height: 300, width: 400, crop: :fill %>')">
-                </div>
-              <% end %>
+                <% if listing.photo.url.nil? %>
+                  <div class="listing-picture mdl-card__title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://loremflickr.com/320/240/food');">
+                <% else %>
+                  <div class="listing-picture mdl-card__title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+                 url('<%= cl_image_path listing.photo, height: 300, width: 400, crop: :fill %>')">
+                <% end %>
+                <div class="listing-title mdl-card__title-text"><%= listing.user.name %></div>
+                  </div>
             <% end %>
-            <div class="listing-title"><%= listing.user.name %></div>
+            <div class="mdl-card__supporting-text">
+              <%= listing.description %>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                  <%= listing.cuisine %>
+              </a>
+            </div>
+            <div class="mdl-card__menu">
+              <span style="color: white; font-size: 10px;"><%= listing.min_party_size %> - <%= listing.max_party_size %></span>
+
+              <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">person</i>
+              </button>
+            </div>
+            <div class="mdl-card__menu mdl-card__menu-2">
+              <span style="color: white; font-size: 10px;"><%= listing.price_per_person %></span>
+
+              <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                <i class="material-icons">attach_money</i>
+              </button>
+            </div>
+
           </div>
         <% end %>
     </div>
   </div>
+
   <div class="map">
     <!-- Generate the map in here -->
     <p>this is the map</p>
 
   </div>
 </div>
+
+<script>
+  let personCountElement = document.getElementById('person_count');
+  let maxPriceElement = document.getElementById('max_price');
+  let searchBar = document.getElementById('fixed-header-drawer-exp');
+  let listings = document.querySelectorAll('.listing.mdl-card.mdl-shadow--2dp');
+
+  const filterResults = () => {
+    const searchValue = searchBar.value.toUpperCase();
+
+    let maxPrice = maxPriceElement.value;
+    if (maxPrice == '') { maxPrice = 10000; }
+
+    let countPeople = personCountElement.value;
+    if (countPeople == '') { countPeople = 2; }
+    let freePeople = false;
+    if (personCountElement.value == '') { freePeople = true; }
+
+    listings.forEach((listing) => {
+      const listingValue = listing.attributes['listingdescription'].value.toUpperCase();
+      const listingppp = listing.attributes['listingppp'].value;
+      const minpeople = listing.attributes['minpeople'].value;
+      const maxpeople = listing.attributes['maxpeople'].value;
+
+      if (
+        listingValue.indexOf(searchValue) !== -1 &&
+        listingppp <= maxPrice &&
+        (freePeople || (minpeople <= countPeople &&
+        maxpeople >= countPeople))
+        ) {
+        listing.classList.remove('hidden');
+      } else {
+        listing.classList.add('hidden');
+      };
+
+    });
+  }
+
+  maxPriceElement.addEventListener('input', () => { filterResults()});
+  personCountElement.addEventListener('input', () => { filterResults()});
+  searchBar.addEventListener('input', () => { filterResults()});
+
+</script>
