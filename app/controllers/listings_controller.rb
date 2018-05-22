@@ -22,7 +22,7 @@ class ListingsController < ApplicationController
     authorize @listing
 
     if @listing.save
-      redirect_to listing_path(@listing.id)
+      redirect_to user_dashboard_path
     else
       render :new
     end
@@ -38,7 +38,10 @@ class ListingsController < ApplicationController
   end
 
   def destroy
+    @listing = Listing.find(params[:id])
     authorize @listing
+    @listing.delete
+    redirect_to user_dashboard_path
   end
 
   private
