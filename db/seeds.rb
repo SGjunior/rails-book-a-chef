@@ -23,7 +23,7 @@ User.destroy_all
 
 end
 
-5.times do
+10.times do
 
   user = User.new(
     name: "#{Faker::SiliconValley.character}#{rand(0..10000000)}",
@@ -33,19 +33,21 @@ end
     age: rand(18..50)
     )
 
-  user.save
+  user.save!
 
 
   listing = Listing.new(
     max_party_size: rand(5..10),
-    min_party_size: rand(2..4),
+    min_party_size: rand(2..3),
     price_per_person: rand(10..50),
     cuisine: Faker::SiliconValley.invention,
     description: Faker::SiliconValley.motto,
-    lng: Faker::Address.longitude,
-    lat: Faker::Address.latitude,
+    # lng: Faker::Address.longitude,
+    # lat: Faker::Address.latitude,
+    lat: (45.5017 + rand() - rand()),
+    lng: (rand() - 73.5673 - rand()),
     user_id: user.id
   )
 
-  listing.save
+  listing.save!
 end

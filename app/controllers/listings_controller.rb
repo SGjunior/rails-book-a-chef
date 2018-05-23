@@ -5,11 +5,29 @@ class ListingsController < ApplicationController
     #INDEX
     @listings = policy_scope(Listing).all # ????? -> wtf is this for
     # @listings = Listing.all
+
+    @listings_on_map = Listing.where.not(lat: nil, lng: nil)
+
+    @markers = @listings_on_map.map do |listing|
+      {
+        lat: listing.lat,
+        lng: listing.lng,
+        # infoWindow: { content: 'you are here' }
+        infoWindow: { content: render_to_string(partial: "listings/listing_marker", locals: { listing: listing }) }
+      }
+    end
+
+
   end
 
   def show
     @listing = Listing.find(params[:id])
     authorize @listing
+
+    @markers = [{
+      lat: @listing.lat,
+      lng: @listing.lng
+    }]
   end
 
   def new
