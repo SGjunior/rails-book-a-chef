@@ -9,6 +9,7 @@
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
       <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Profile</a>
       <a href="#scroll-tab-2" class="mdl-layout__tab">Listings</a>
+      <a href="#scroll-tab-3" class="mdl-layout__tab">Bookings</a>
 
     </div>
   </header>
@@ -27,7 +28,11 @@
         <%= render 'user/listings' %>
       </div>
     </section>
-
+    <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+      <div class="page-content">
+        <%= render 'user/bookings' %>
+      </div>
+    </section>
 
     <!-- <section class="mdl-layout__tab-panel" id="scroll-tab-2">
       <div class="page-content">Your content goes here</div>
