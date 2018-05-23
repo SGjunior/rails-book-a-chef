@@ -4,10 +4,6 @@ import { autocomplete } from '../components/autocomplete';
 autocomplete();
 
 
-// todo : this should be in a different file
-
-// When the user scrolls the page, execute myFunction
-
 // Get the navbar
 var stickyForm = document.getElementById("sticky-form");
 

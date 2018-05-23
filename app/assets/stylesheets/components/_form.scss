@@ -1,6 +1,5 @@
 .form-control.mx-1.date.required.form-inline {
   display: inline-block;
-  width: 32%;
 }
 
 .form-control.mx-1.time.required {
@@ -23,21 +22,20 @@
   margin-right: auto;
 }
 
+.form-head {
+  text-align: center !important;
+  margin: 0px auto !important;
+}
+
 .sticky {
   position: fixed;
-  width: 100%;
 }
 
 #sticky-form {
-  width: 32%;
-  top: 10%;
+  top: 9.1%;
   text-align: center;
   justify-content: center;
   background-color: white;
   opacity: 0.8;
-}
-
-.form-head {
-  text-align: center !important;
-  margin: 0px auto !important;
+  width: 32%;
 }

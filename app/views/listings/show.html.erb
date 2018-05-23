@@ -1,57 +1,82 @@
 <div class="content">
     <div class="banner w-100">
-      <img <%=cl_image_tag(@listing.photo, class:"img-responsive", alt:"Responsive image")%>
+      <%=cl_image_tag(@listing.photo, class:"img-responsive", alt:"Responsive image")%>
+    </div>
+
+  <div class="listing-description col-sm-8">
+    <ul class="nav nav-tabs" role="tablist">
+      <li role="presentation" class="active">
+        <a href="#description"
+          aria-controls="description"
+          role="tab"
+          data-toggle="tab"
+          >Description</a>
+         </li>
+         <li role="presentation">
+          <a href="#chef-info"
+           aria-controls="chef-info"
+           role="tab"
+           data-toggle="tab"
+          >Chef Info</a>
+         </li>
+         <li role="presentation">
+          <a href="#booking"
+           aria-controls="booking"
+           role="tab"
+           data-toggle="tab"
+           >Booking</a>
+         </li>
+         <li role="presentation">
+          <a href="#reviews"
+           aria-controls="reviews"
+           role="tab"
+           data-toggle="tab"
+          >Reviews</a>
+        </li>
+      </ul>
+    <div class="tab-content">
+ <div role="tabpanel" class="tab-pane active" id="description">
+  <div class="card-wrapper">
+      <div class="card">
+          <div class="card-body">
+            <ul class="card-description listing-features">
+              <li><i class="fas fa-users"></i> <%=@listing.min_party_size%>-<%=@listing.max_party_size%> People</li>
+              <li><i class="fas fa-dollar-sign"></i><%=@listing.price_per_person%> per person</li>
+              <li><i class="fas fa-utensils"></i><%=@listing.cuisine%></li>
+              <li><i class="fas fa-info-circle"></i><%=@listing.description%></li>
+              <li><i class="fas fa-fire"></i>This listing is popular!</li>
+            </ul>
+        </div>
     </div>
   </div>
-
-  <div class="row">
-    <div class="listing-description col-sm-8">
-     <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-            <div class="mdl-card mdl-cell mdl-cell--12-col">
-              <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
-                <h4 class="mdl-cell mdl-cell--12-col">Listing Info</h4>
-                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--primary"></div>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5>Your host: <%= @listing.user.name %></h5>
-                  <p><%= @listing.description %></p>
-                </div>
-                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--primary"></div>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5>Cuisine: <%=@listing.cuisine%></h5>
-                </div>
-                <div class="section__circle-container mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
-                  <div class="section__circle-container__circle mdl-color--primary"></div>
-                </div>
-                <div class="section__text mdl-cell mdl-cell--10-col-desktop mdl-cell--6-col-tablet mdl-cell--3-col-phone">
-                  <h5><%=@listing.min_party_size%>to <%=@listing.max_party_size%> people</h5>
-                  <p>Price: $<%=@listing.price_per_person%> per person</p>
-                </div>
-              </div>
-              <div class="mdl-card__actions">
-                <a href="#" class="mdl-button">Find out more about your chef!</a>
-              </div>
-            </div>
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn2">
-              <i class="material-icons">more_vert</i>
-            </button>
-            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
-              <li class="mdl-menu__item">Save</li>
-              <li class="mdl-menu__item" disabled>Edit</li>
+</div>
+<div role="tabpanel" class="tab-pane top-10" id="chef-info">
+<div class="card-wrapper">
+    <div class="card">
+        <div class="card-body">
+          <ul class="card-description">
+              <li><%=@listing.user.name %></li>
+              <li><%=cl_image_tag(@listing.user.photo, class: "avatar avatar-small")%></li>
+              <li><%=@listing.user.bio%></li>
+              <li><%=@listing.user.age%></li>
             </ul>
-          </section>
+        </div>
+      </div>
+    </div>
+ </div>
+ <div role="tabpanel" class="tab-pane" id="notes">
+  ...
+ </div>
+ <div role="tabpanel" class="tab-pane" id="reviews">
+  ...
+ </div>
+</div>
+
     </div>
 
-    <div class="form-group col-sm-4">
+    <div class="col-sm-4">
      <%= render "booking_form" %>
     </div>
   </div>
 </div>
-
-
-  <!--    style="background-image: linear-gradient(-225deg, #efc64e78 0%, rgba(85, 92, 97, 0.35) 50%), url(' image_path 'dumplings-bg.jpg'%>')"> -->
-
 
