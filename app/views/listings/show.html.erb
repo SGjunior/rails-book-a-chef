@@ -15,18 +15,18 @@
     >Description</a>
    </li>
    <li role="presentation">
-    <a href="#features"
-     aria-controls="features"
+    <a href="#chef"
+     aria-controls="chef"
      role="tab"
      data-toggle="tab"
-    >Features</a>
+    >Chef</a>
    </li>
    <li role="presentation">
-    <a href="#notes"
-     aria-controls="notes"
+    <a href="#booking"
+     aria-controls="booking"
      role="tab"
      data-toggle="tab"
-     >Notes</a>
+     >Booking</a>
    </li>
    <li role="presentation">
     <a href="#reviews"
@@ -41,22 +41,40 @@
 </div>
 
 <div class="tab-content col-sm-4">
- <div role="tabpanel" class="tab-pane active" id="description">
+ <div role="tabpanel" class="tab-pane top-10" id="booking">
   <%= render "booking_form" %>
  </div>
- <div role="tabpanel" class="tab-pane top-10" id="features">
-  <ul class="listing-features">
-        <li><%=@listing.min_party_size%>-<%=@listing.max_party_size%> people</li>
-        <li>$<%=@listing.price_per_person%>per person</li>
-        <li><%=@listing.cuisine%></li>
-        <li><%=@listing.description%></li>
-      </ul>
+ <div role="tabpanel" class="tab-pane active" id="description">
+  <div class="card-wrapper">
+    <div class="card">
+        <div class="card-body">
+          <ul class="card-description listing-features">
+              <li><i class="fas fa-users"></i> <%=@listing.min_party_size%>-<%=@listing.max_party_size%> People</li>
+              <li><i class="fas fa-dollar-sign"></i><%=@listing.price_per_person%> per person</li>
+              <li><i class="fas fa-utensils"></i><%=@listing.cuisine%></li>
+              <li><i class="fas fa-info-circle"></i><%=@listing.description%></li>
+            </ul>
+        </div>
+        <div class="card-footer">This listing is popular!</div>
+      </div>
+    </div>
  </div>
- <div role="tabpanel" class="tab-pane" id="notes">
-  ...
- </div>
- <div role="tabpanel" class="tab-pane" id="reviews">
-  ...
- </div>
+   <div role="tabpanel" class="tab-pane" id="chef">
+   <div class="card-wrapper">
+    <div class="card">
+        <div class="card-body">
+          <ul class="card-description">
+              <li><%=@listing.user.name %></li>
+              <li><%=cl_image_tag(@listing.user.photo, class: "avatar avatar-small")%></li>
+              <li><%=@listing.user.bio%></li>
+              <li><%=@listing.user.age%></li>
+            </ul>
+        </div>
+      </div>
+    </div>
+   </div>
+   <div role="tabpanel" class="tab-pane" id="reviews">
+   </div>
 </div>
+
 
