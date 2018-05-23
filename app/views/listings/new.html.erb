@@ -33,6 +33,7 @@
           <%= f.file_field :photo%>
         </span>
     </label>
+    <span id="file_name_display">No File Chosen</span>
   </div>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -41,3 +42,26 @@
 <% end %>
 
 </div>
+
+
+<script>
+
+// todo : put in a js file
+
+let elInputListingPhoto = document.getElementById('listing_photo');
+elInputListingPhoto.addEventListener('input', (event) => { uploadOnChange() });
+
+function uploadOnChange() {
+    var filename = elInputListingPhoto.value;
+    var lastIndex = filename.lastIndexOf("\\");
+    if (lastIndex >= 0) {
+        filename = filename.substring(lastIndex + 1);
+    }
+
+    if (filename == '') { filename = 'No File Chosen'; }
+
+    document.getElementById('file_name_display').innerHTML = filename;
+}
+
+
+</script>
