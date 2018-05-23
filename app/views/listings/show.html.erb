@@ -1,80 +1,60 @@
-<div class="content-wrapper">
-  <div class="content">
-    <div class="listing-image-bg col-sm-8">
-      <div class="listing-image">
-        <%=cl_image_tag(@listing.photo, class:"img-responsive img-rounded", alt:"Responsive image", id: "user-upload")%>
-      </div>
+<div class="content">
+    <div class="banner w-100">
+      <img <%=cl_image_tag(@listing.photo, class:"img-responsive", alt:"Responsive image")%>
     </div>
-  <div class="form-group col-sm-4">
+  </div>
+
+  <div class="listing-description col-sm-8">
     <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active">
-    <a href="#description"
-     aria-controls="description"
-     role="tab"
-     data-toggle="tab"
-    >Description</a>
-   </li>
-   <li role="presentation">
-    <a href="#chef"
-     aria-controls="chef"
-     role="tab"
-     data-toggle="tab"
-    >Chef</a>
-   </li>
-   <li role="presentation">
-    <a href="#booking"
-     aria-controls="booking"
-     role="tab"
-     data-toggle="tab"
-     >Booking</a>
-   </li>
-   <li role="presentation">
-    <a href="#reviews"
-     aria-controls="reviews"
-     role="tab"
-     data-toggle="tab"
-    >Reviews</a>
-   </li>
-  </ul>
+      <li role="presentation" class="active">
+        <a href="#description"
+          aria-controls="description"
+          role="tab"
+          data-toggle="tab"
+          >Description</a>
+         </li>
+         <li role="presentation">
+          <a href="#chef-info"
+           aria-controls="chef-info"
+           role="tab"
+           data-toggle="tab"
+          >Chef Info</a>
+         </li>
+         <li role="presentation">
+          <a href="#booking"
+           aria-controls="booking"
+           role="tab"
+           data-toggle="tab"
+           >Booking</a>
+         </li>
+         <li role="presentation">
+          <a href="#reviews"
+           aria-controls="reviews"
+           role="tab"
+           data-toggle="tab"
+          >Reviews</a>
+         </li>
+        </ul>
+    </div>
+
+    <div class="col-sm-4">
+     <%= render "booking_form" %>
+    </div>
   </div>
 </div>
-</div>
 
-<div class="tab-content col-sm-4">
- <div role="tabpanel" class="tab-pane top-10" id="booking">
-  <%= render "booking_form" %>
- </div>
+<!-- Tab panes -->
+<div class="tab-content">
  <div role="tabpanel" class="tab-pane active" id="description">
-  <div class="card-wrapper">
-    <div class="card">
-        <div class="card-body">
-          <ul class="card-description listing-features">
-              <li><i class="fas fa-users"></i> <%=@listing.min_party_size%>-<%=@listing.max_party_size%> People</li>
-              <li><i class="fas fa-dollar-sign"></i><%=@listing.price_per_person%> per person</li>
-              <li><i class="fas fa-utensils"></i><%=@listing.cuisine%></li>
-              <li><i class="fas fa-info-circle"></i><%=@listing.description%></li>
-            </ul>
-        </div>
-        <div class="card-footer">This listing is popular!</div>
-      </div>
-    </div>
+
  </div>
-   <div role="tabpanel" class="tab-pane" id="chef">
-   <div class="card-wrapper">
-    <div class="card">
-        <div class="card-body">
-          <ul class="card-description">
-              <li><%=@listing.user.name %></li>
-              <li><%=cl_image_tag(@listing.user.photo, class: "avatar avatar-small")%></li>
-              <li><%=@listing.user.bio%></li>
-              <li><%=@listing.user.age%></li>
-            </ul>
-        </div>
-      </div>
-    </div>
-   </div>
-   <div role="tabpanel" class="tab-pane" id="reviews">
-   </div>
+ <div role="tabpanel" class="tab-pane top-10" id="features">
+  ...
+ </div>
+ <div role="tabpanel" class="tab-pane" id="notes">
+  ...
+ </div>
+ <div role="tabpanel" class="tab-pane" id="reviews">
+  ...
+ </div>
 </div>
-
-

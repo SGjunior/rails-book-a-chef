@@ -1,19 +1,22 @@
 import "bootstrap";
 
-// When the user scrolls the page, execute myFunction
-// window.onscroll = function() {scrollForm()};
+import { autocomplete } from '../components/autocomplete';
+autocomplete();
 
-// // Get the navbar
-// var stickyForm = document.getElementById("sticky-form");
 
-// // Get the offset position of the navbar
-// var sticky = stickyForm.offsetTop;
+// Get the navbar
+var stickyForm = document.getElementById("sticky-form");
 
-// // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-// function scrollForm() {
-//   if (window.pageYOffset >= sticky) {
-//     stickyForm.classList.add("sticky")
-//   } else {
-//     stickyForm.classList.remove("sticky");
-//   }
-// }
+// Get the offset position of the navbar
+if (stickyForm) {
+  var sticky = stickyForm.offsetTop;
+  window.onscroll = function() {myFunction()};
+}
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    stickyForm.classList.add("sticky")
+  } else {
+    stickyForm.classList.remove("sticky");
+  }
+}
