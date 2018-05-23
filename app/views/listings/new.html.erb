@@ -27,8 +27,10 @@
   </div>
 
   <!-- adding the address autocomplete to this part of the project -->
-
-
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, { class: 'form-control' } %>
+  </div>
 
   <div class="form-group">
     <label class="btn btn-primary">
@@ -51,7 +53,6 @@
 <script>
 
 // todo : put in a js file
-
 let elInputListingPhoto = document.getElementById('listing_photo');
 elInputListingPhoto.addEventListener('input', (event) => { uploadOnChange() });
 
