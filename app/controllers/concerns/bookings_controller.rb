@@ -2,16 +2,13 @@ class BookingsController < ApplicationController
   before_action :set_listing, :set_user
 
   def index
-    @bookings = policy_scope(Booking).all
   end
 
   def show
-    authorize @booking
   end
 
   def new
     @booking = Booking.new
-    authorize @booking
   end
 
   def create
@@ -19,17 +16,13 @@ class BookingsController < ApplicationController
     @booking.listing = @listing
     @booking.user = @user
     if @booking.save!
-      # redirect_to root_path
-      redirect_to listing_path(@booking.listing.id)
+      redirect_to root_path
     else
       render "new"
     end
-    authorize @booking
-
   end
 
   def destroy
-    authorize @booking
   end
 
   private

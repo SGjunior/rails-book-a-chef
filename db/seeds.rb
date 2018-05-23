@@ -44,9 +44,8 @@ end
     description: Faker::SiliconValley.motto,
     # lng: Faker::Address.longitude,
     # lat: Faker::Address.latitude,
-    latitude: (45.5017 + rand() - rand()),
-    longitude: (rand() - 73.5673 - rand()),
-    address: Faker::Address.street_address,
+    lat: (45.5017 + rand() - rand()),
+    lng: (rand() - 73.5673 - rand()),
     user_id: user.id
   )
 
