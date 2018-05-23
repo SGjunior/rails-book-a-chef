@@ -3,5 +3,6 @@ class UserController < ApplicationController
 
   def index
     policy_scope(User) #miscreant
+    @dont_render_footer = true
   end
 end
