@@ -70,11 +70,10 @@
     </div>
   </div>
 
-  <div class="map">
     <!-- Generate the map in here -->
-    <p>this is the map</p>
-
-  </div>
+    <div class="map">
+      <div id="map" data-markers="<%= @markers.to_json %>"></div>
+    </div>
 </div>
 
 <script>

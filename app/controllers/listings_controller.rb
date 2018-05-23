@@ -5,11 +5,29 @@ class ListingsController < ApplicationController
     #INDEX
     @listings = policy_scope(Listing).all # ????? -> wtf is this for
     # @listings = Listing.all
+
+    @listings_on_map = Listing.where.not(latitude: nil, longitude: nil)
+
+    @markers = @listings_on_map.map do |listing|
+      {
+        lat: listing.latitude,
+        lng: listing.longitude,
+        # infoWindow: { content: 'you are here' }
+        infoWindow: { content: render_to_string(partial: "listings/listing_marker", locals: { listing: listing }) }
+      }
+    end
+
+
   end
 
   def show
     @listing = Listing.find(params[:id])
     authorize @listing
+
+    @markers = [{
+      lat: @listing.latitude,
+      lng: @listing.longitude
+    }]
   end
 
   def new
@@ -22,7 +40,7 @@ class ListingsController < ApplicationController
     authorize @listing
 
     if @listing.save
-      redirect_to listing_path(@listing.id)
+      redirect_to user_dashboard_path
     else
       render :new
     end
@@ -38,7 +56,10 @@ class ListingsController < ApplicationController
   end
 
   def destroy
+    @listing = Listing.find(params[:id])
     authorize @listing
+    @listing.delete
+    redirect_to user_dashboard_path
   end
 
   private
@@ -46,7 +67,7 @@ class ListingsController < ApplicationController
   # TODO - determine if booking should be instantiated here and called in to show method
 
   def listing_params
-    params.require(:listing).permit(:description, :cuisine, :min_party_size, :max_party_size, :price_per_person, :user_id, :lng, :lat, :photo)
+    params.require(:listing).permit(:description, :cuisine, :min_party_size, :max_party_size, :price_per_person, :user_id, :longitude, :latitude, :photo, :address)
   end
 
   def set_booking

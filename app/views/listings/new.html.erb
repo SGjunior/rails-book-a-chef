@@ -26,6 +26,12 @@
     <%= f.number_field :price_per_person, { class: 'form-control' } %>
   </div>
 
+  <!-- adding the address autocomplete to this part of the project -->
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, { class: 'form-control' } %>
+  </div>
+
   <div class="form-group">
     <label class="btn btn-primary">
         Upload image
@@ -33,6 +39,7 @@
           <%= f.file_field :photo%>
         </span>
     </label>
+    <span id="file_name_display">No File Chosen</span>
   </div>
 
   <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -41,3 +48,25 @@
 <% end %>
 
 </div>
+
+
+<script>
+
+// todo : put in a js file
+let elInputListingPhoto = document.getElementById('listing_photo');
+elInputListingPhoto.addEventListener('input', (event) => { uploadOnChange() });
+
+function uploadOnChange() {
+    var filename = elInputListingPhoto.value;
+    var lastIndex = filename.lastIndexOf("\\");
+    if (lastIndex >= 0) {
+        filename = filename.substring(lastIndex + 1);
+    }
+
+    if (filename == '') { filename = 'No File Chosen'; }
+
+    document.getElementById('file_name_display').innerHTML = filename;
+}
+
+
+</script>
