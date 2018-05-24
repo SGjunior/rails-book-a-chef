@@ -1,12 +1,18 @@
 .content {
 }
 
-.listing-image {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+.main-wrapper {
+  .banner {
+    text-align: center;
+  }
+
+  .banner img {
+    display: inline-block;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+  }
 }
 
 .booking-info {
@@ -30,6 +36,30 @@
 .card-body ul {
    list-style: none;
    margin-left: 0;
-   padding-left: 1em;
-   text-indent: -1em;
+   padding: 1em;
+}
+
+.show-banner {
+  height: 600px;
+  background-size: cover;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.show-banner h1 {
+  font-size: 50px;
+  font-weight: 500;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+}
+
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 50px;
+  letter-spacing: 2px;
 }
