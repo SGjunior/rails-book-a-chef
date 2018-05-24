@@ -22,7 +22,11 @@
         <%= yield %>
      </div>
       <div id="footer">
+        <div class="row">
+          <div class="col-xs-12">
         <%= render 'shared/footer' unless @dont_render_footer %>
+          </div>
+        </div>
       </div>
     </div>
 
