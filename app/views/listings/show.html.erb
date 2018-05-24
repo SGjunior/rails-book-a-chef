@@ -67,7 +67,7 @@
                   </div>
                   <div class="stat">
                     <div class="stat-content">
-                      <h3>NUMBER</h3>
+                      <h3><%= @listing.bookings.count%></h3>
                       <p>bookings made on this listing</p>
                     </div>
                   </div>
@@ -90,7 +90,7 @@
             </div>
           </div>
         </div>
-        <div class="map col-sm-6 map-container">
+        <div class="show-map col-sm-6 map-container">
           <div id="map" data-markers="<%= @markers.to_json %>"></div>
         </div>
       </div>
