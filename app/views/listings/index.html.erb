@@ -2,14 +2,15 @@
   <div class="banner-content">
     <h1>Book-A-Chef</h1>
     <p>Just right for your diner parties!</p>
-    <a class="btn btn-primary btn-lg" href="#index-filters">Browse</a>
+    <a id="browse-main-btn" class="btn btn-primary btn-lg" href="#index-filters">Browse</a>
   </div>
 </div>
 <!-- adding banner to the top of the page -->
 
-<div class="app">
+<div class="app mdl-shadow--2dp">
   <div class="main" id="main">
-    <div id="index-filters" class="mdl-layout__header-row" style="margin-top: 10px;">
+    <!-- STICKY FILTERS BAR -->
+    <div id="index-filters" class="mdl-layout__header-row mdl-shadow--2dp filters-stick" style="margin-top: 10px;">
       <div class="mdl-layout-spacer"></div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
                   mdl-textfield--floating-label mdl-textfield--align-right">
@@ -86,24 +87,20 @@
 </div>
 
 <script>
-  let personCountElement = document.getElementById('person_count');
-  let maxPriceElement = document.getElementById('max_price');
-  let searchBar = document.getElementById('fixed-header-drawer-exp');
-  let listings = document.querySelectorAll('.listing.mdl-card.mdl-shadow--2dp');
+  const personCountElement = document.getElementById('person_count');
+  const maxPriceElement = document.getElementById('max_price');
+  const searchBar = document.getElementById('fixed-header-drawer-exp');
+  const listings = document.querySelectorAll('.listing.mdl-card.mdl-shadow--2dp');
 
   const filterResults = () => {
-    const searchValue = searchBar.value.toUpperCase();
+    const searchValue = searchBar.value.toLowerCase();
 
-    let maxPrice = maxPriceElement.value;
-    if (maxPrice == '') { maxPrice = 10000; }
-
-    let countPeople = personCountElement.value;
-    if (countPeople == '') { countPeople = 2; }
-    let freePeople = false;
-    if (personCountElement.value == '') { freePeople = true; }
+    const maxPrice = maxPriceElement.value ? parseInt(maxPriceElement.value) : 1000 ;
+    const countPeople = personCountElement.value ? personCountElement.value : 2;
+    const freePeople = personCountElement.value == '' ? true : false;
 
     listings.forEach((listing) => {
-      const listingValue = listing.attributes['listingdescription'].value.toUpperCase();
+      const listingValue = listing.attributes['listingdescription'].value.toLowerCase();
       const listingppp = listing.attributes['listingppp'].value;
       const minpeople = listing.attributes['minpeople'].value;
       const maxpeople = listing.attributes['maxpeople'].value;
@@ -119,6 +116,11 @@
         listing.classList.add('hidden');
       };
 
+      searchBar.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+
     });
   }
 
@@ -126,9 +128,7 @@
   personCountElement.addEventListener('input', () => { filterResults()});
   searchBar.addEventListener('input', () => { filterResults()});
 
-
   // Smooth scrolling on anchor link click
-
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -137,11 +137,12 @@
             behavior: 'smooth',
             block: 'start'
         });
+
         setTimeout(function() {
            searchBar.focus();
          }, 500);
 
-    });
-});
+      });
+  });
 
 </script>
