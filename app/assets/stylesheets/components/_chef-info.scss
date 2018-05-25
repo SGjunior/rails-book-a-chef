@@ -4,19 +4,16 @@
   grid-template-rows: 50% 50%;
   height: inherit;
 }
-.profile .main {
+.profile-main {
   grid-row: 1 / span 2;
   grid-column: 1 / span 1;
 }
-.profile .stat {
-  grid-row: 1/ span 1;
-  grid-column:  2/ span 3;
-}
+
 .profile .description {
-  grid-row: 2 / span 1;
+  grid-row: 1 / span 2;
   grid-column: 2 / span 3;
 }
-.main, .description, .stat {
+.description, .stat {
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   padding: 5px;
   margin: 1px;
@@ -68,4 +65,8 @@
 .description p {
   color: white;
   font-weight: lighter;
+}
+
+.center-button {
+  margin: auto;
 }
