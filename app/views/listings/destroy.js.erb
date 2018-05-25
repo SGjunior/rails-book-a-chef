@@ -1,0 +1,17 @@
+<% if @error.nil? %>
+
+  console.log('the delete worked');
+
+  document.querySelector('[data-listing-id="<%= @listing.id %>"]').remove();
+
+<% else %>
+
+  console.log('the delete did not work');
+  console.log("<%= j @error %>");
+
+<% end %>
+
+
+
+
+

@@ -62,11 +62,25 @@ class ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:id])
     authorize @listing
-    # if @listing.destroy
-      # redirect_to user_dashboard_path
-    # else
-      # redirect_to listings_path
-    # end
+
+    begin
+      @listing.destroy
+      respond_to do |format|
+        format.html { redirect_to user_dashboard_path }
+        format.js  # <-- will render `app/views/listings/destroy.js.erb`
+      end
+    rescue => e
+      if e.to_s =~ /violates foreign key constraint/
+        @error = 'You cannot delete a listing with active bookings'
+      else
+        @error = 'Error code 663 : Please contact support'
+      end
+      # binding.pry
+      respond_to do |format|
+        format.html { render 'restaurants/show' }
+        format.js # <-- will render `app/views/listings/destroy.js.erb`
+      end
+    end
   end
 
   private

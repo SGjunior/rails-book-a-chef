@@ -17,7 +17,7 @@
       <%= listing.cuisine %>
     </a>
 
-    <%= link_to listing_path(listing.id), { method: :delete, class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect', style: 'color: #EE5F5B !important; float: right;' } do %>
+    <%= link_to listing_path(listing.id), { method: :delete, class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect', style: 'color: #EE5F5B !important; float: right;', remote: true } do %>
     DELETE
     <% end %>
 
