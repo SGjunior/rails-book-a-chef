@@ -71,7 +71,7 @@ class ListingsController < ApplicationController
       end
     rescue => e
       if e.to_s =~ /violates foreign key constraint/
-        @error = 'You cannot delete a listing with active bookings'
+        @error = 'Your listing still has active bookings'
       else
         @error = 'Error code 663 : Please contact support'
       end

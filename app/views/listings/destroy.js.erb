@@ -1,17 +1,13 @@
 <% if @error.nil? %>
 
-  console.log('the delete worked');
-
+  swal("Succesfully Deleted!", "<%= @listing.description %>", "success");
   document.querySelector('[data-listing-id="<%= @listing.id %>"]').remove();
 
 <% else %>
-
-  console.log('the delete did not work');
-  console.log("<%= j @error %>");
-
+  swal("Delete Failed", "<%= @error %>", "error", {
+    dangerMode: true
+  });
 <% end %>
-
-
 
 
 
