@@ -54,16 +54,16 @@
                     <div class="profile-main">
                       <div class="main-content">
                         <%=cl_image_tag(@listing.user.photo, class: "avatar avatar-small")%>
-                        <h2><%=@listing.user.name%></h2>
-                        <p>wants to cook for you!</p>
+                        <h4><%=@listing.user.name%></h4>
+                        <h2>wants to cook for you!</h2>
                       </div>
                     </div>
                     <div class="description">
                       <div class="description-content">
-                        <h3>More about <%=@listing.user.name%></h3>
-                        <p class="text-justify">
+                        <h4>More about <%=@listing.user.name%></h4>
+                        <h2 class="text-justify">
                           <%=@listing.user.bio%>
-                        </p>
+                        </h2>
                       </div>
                     </div>
                   </div>
