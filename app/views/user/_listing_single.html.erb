@@ -1,0 +1,44 @@
+<div class="listing mdl-card mdl-shadow--2dp" listingdescription="<%= listing.user.name %><%= listing.description %> <%= listing.cuisine %>" listingppp="<%= listing.price_per_person %>" minpeople="<%= listing.min_party_size %>" maxpeople="<%= listing.max_party_size %>" data-listing-id="<%= listing.id %>">
+  <%= link_to listing_path(listing.id) do %>
+  <% if listing.photo.url.nil? %>
+  <div class="listing-picture mdl-card__title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://loremflickr.com/320/240/food');">
+    <% else %>
+    <div class="listing-picture mdl-card__title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+    url('<%= cl_image_path listing.photo, height: 300, width: 400, crop: :fill %>')">
+    <% end %>
+    <div class="listing-title mdl-card__title-text"><%= listing.user.name %></div>
+  </div>
+  <% end %>
+  <div class="mdl-card__supporting-text">
+    <%= listing.description %>
+  </div>
+  <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+      <%= listing.cuisine %>
+    </a>
+
+    <%= link_to listing_path(listing.id), { method: :delete, class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect', style: 'color: #EE5F5B !important; float: right;' } do %>
+    DELETE
+    <% end %>
+
+    <%= link_to edit_listing_path(listing.id), { class: 'mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect', style: 'color: #E67E22; float: right' } do %>
+    EDIT
+    <% end %>
+
+  </div>
+  <div class="mdl-card__menu">
+    <span style="color: white; font-size: 10px;"><%= listing.min_party_size %> - <%= listing.max_party_size %></span>
+
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">person</i>
+    </button>
+  </div>
+  <div class="mdl-card__menu mdl-card__menu-2">
+    <span style="color: white; font-size: 10px;"><%= listing.price_per_person %></span>
+
+    <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+      <i class="material-icons">attach_money</i>
+    </button>
+  </div>
+
+</div>
