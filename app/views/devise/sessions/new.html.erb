@@ -4,14 +4,17 @@
 
   <div class="login-form mdl-shadow--2dp">
     <h2 style="text-align: center;">Welcome</h2>
+    <% resource.valid? %>
+    <%= resource.errors.messages %>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <!-- <div class="form-inputs"> -->
       <input class="fancy-input" type="email" value="" name="user[email]" id="user_email" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+
 
       <input class="fancy-input password" type="password" name="user[password]" id="user_password" placeholder="Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
 
-      <input type="submit" name="commit" value="Log in" class="fancy-input" data-disable-with="Login" style="background: white; color: #1B5A72">
+
+      <input id="signup-input-btn" type="submit" name="commit" value="Log in" class="fancy-input" data-disable-with="Login" style="background: white; color: #1B5A72">
 
       <!-- </div> -->
     <% end %>
@@ -31,4 +34,8 @@
       document.getElementById('user_email').focus();
     }, 1000);
   };
+
+  // const signupBtn = document.getElementById('signup-input-btn');
+  // const signupForm = document.querySelector('form');
+
 </script>

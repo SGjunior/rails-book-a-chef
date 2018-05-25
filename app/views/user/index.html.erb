@@ -3,18 +3,30 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title"><%= current_user.name %></span>
+      <span class="mdl-layout-title"><%= current_user.name.capitalize %>'s Dashboard</span>
     </div>
+
     <!-- Tabs -->
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
       <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Profile</a>
       <a href="#scroll-tab-2" class="mdl-layout__tab">Listings</a>
       <a href="#scroll-tab-3" class="mdl-layout__tab">Bookings</a>
-
+      <% if current_user.listings.any? %>
+        <a href="#scroll-tab-4" class="mdl-layout__tab">
+          <span class="mdl-badge" data-badge="2">Your soirées</span>
+        </a>
+      <% end %>
     </div>
+
+
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
+    <span class="mdl-layout-title">My Account</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Billing</a>
+        <a class="mdl-navigation__link" href="">Contact</a>
+        <a class="mdl-navigation__link" href="">About</a>
+      </nav>
   </div>
   <main class="mdl-layout__content">
     <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
@@ -34,9 +46,19 @@
       </div>
     </section>
 
+      <% if current_user.listings.any? %>
+      <section class="mdl-layout__tab-panel" id="scroll-tab-4">
+        <div class="page-content">
+          <%= render 'user/booking_chef' %>
+        </div>
+      </section>
+      <% end %>
+
+
     <!-- <section class="mdl-layout__tab-panel" id="scroll-tab-2">
       <div class="page-content">Your content goes here</div>
     </section> -->
+
 
 
   </main>

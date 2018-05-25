@@ -47,7 +47,11 @@ class ListingsController < ApplicationController
   end
 
   def update
+    @listing = Listing.find(params[:id])
+    @listing.update(listing_params)
+
     authorize @listing
+    redirect_to user_dashboard_path
   end
 
   def edit
@@ -58,8 +62,11 @@ class ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:id])
     authorize @listing
-    @listing.delete
-    redirect_to user_dashboard_path
+    if @listing.destroy
+      redirect_to user_dashboard_path
+    else
+      redirect_to listings_path
+    end
   end
 
   private
