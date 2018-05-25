@@ -1,96 +1,112 @@
 <div class="content">
-  <div class="main">
+  <div class="main bg-show">
     <div class="container">
 
       <div class="row">
         <div class="show-banner" style="background-image: url('<%= cl_image_path @listing.photo %>')">
           <div class="banner-content">
             <h1><%=@listing.description%></h1>
-            <a href="" class="btn-yours">Discover more</a>
           </div>
         </div>
       </div>
 
       <div class="row top-buffer">
-        <div class="show-details col-sm-6">
-          <ul class="nav nav-tabs" role="tablist">
-            <li role="presentation" class="active">
-              <a href="#description"
-              aria-controls="description"
-              role="tab"
-              data-toggle="tab"
-              >Description</a>
-            </li>
-            <li role="presentation">
-              <a href="#chef-info"
-              aria-controls="chef-info"
-              role="tab"
-              data-toggle="tab"
-              >Chef Info</a>
-            </li>
-            <li role="presentation">
-              <a href="#booking"
-              aria-controls="booking"
-              role="tab"
-              data-toggle="tab"
-              >Booking</a>
-            </li>
-            <li role="presentation">
-              <a href="#reviews"
-              aria-controls="reviews"
-              role="tab"
-              data-toggle="tab"
-              >Reviews</a>
-            </li>
-          </ul>
-          <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="description">
-              <div class="card-body">
-                <ul class="card-description">
-                  <li><i class="fas fa-users"></i> <%=@listing.min_party_size%>-<%=@listing.max_party_size%> People</li>
-                  <li><i class="fas fa-dollar-sign"></i><%=@listing.price_per_person%> per person</li>
-                  <li><i class="fas fa-utensils"></i><%=@listing.cuisine%></li>
-                  <li><i class="fas fa-info-circle"></i><%=@listing.description%></li>
-                  <li><i class="fas fa-fire"></i>This listing is popular!</li>
-                </ul>
+        <div class="col-xs-12 col-sm-6" id="remove-padding-left">
+          <div class="show-details">
+            <ul class="nav nav-tabs" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#description"
+                aria-controls="description"
+                role="tab"
+                data-toggle="tab"
+                >Description</a>
+              </li>
+              <li role="presentation">
+                <a href="#chef-info"
+                aria-controls="chef-info"
+                role="tab"
+                data-toggle="tab"
+                >Chef Info</a>
+              </li>
+              <li role="presentation">
+                <a href="#booking"
+                aria-controls="booking"
+                role="tab"
+                data-toggle="tab"
+                >Booking</a>
+              </li>
+              <li role="presentation">
+                <a href="#reviews"
+                aria-controls="reviews"
+                role="tab"
+                data-toggle="tab"
+                >Reviews</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div role="tabpanel" class="tab-pane active" id="description">
+                <div class="card-body">
+                  <ul class="card-description">
+                    <li><i class="fas fa-users"></i> <%=@listing.min_party_size%>-<%=@listing.max_party_size%> People</li>
+                    <li><i class="fas fa-dollar-sign"></i><%=@listing.price_per_person%> per person</li>
+                    <li><i class="fas fa-utensils"></i><%=@listing.cuisine%></li>
+                    <li><i class="fas fa-info-circle"></i><%=@listing.description%></li>
+                    <li><i class="fas fa-fire"></i>This listing is popular!</li>
+                  </ul>
+                </div>
               </div>
-            </div>
-            <div role="tabpanel" class="tab-pane top-10" id="chef-info">
-              <div class="card-body">
-                <div class="profile text-center">
-                  <div class="main">
-                    <div class="main-content">
-                      <%=cl_image_tag(@listing.user.photo, class: "avatar avatar-small")%>
-                      <h2><%=@listing.user.name%></h2>
-                      <p>wants to cook for you!</p>
+              <div role="tabpanel" class="tab-pane top-10" id="chef-info">
+                <div class="card-body">
+                  <div class="profile text-center">
+                    <div class="profile-main">
+                      <div class="main-content">
+                        <%=cl_image_tag(@listing.user.photo, class: "avatar avatar-small")%>
+                        <h2><%=@listing.user.name%></h2>
+                        <p>wants to cook for you!</p>
+                      </div>
                     </div>
-                  </div>
-                  <div class="stat">
-                    <div class="stat-content">
-                      <h3><%= @listing.bookings.count%></h3>
-                      <p>bookings made on this listing</p>
+                    <div class="stat">
+                      <div class="stat-content">
+                        <h3><%= @listing.bookings.count%></h3>
+                        <p>bookings made on this listing</p>
+                      </div>
                     </div>
-                  </div>
-                  <div class="description">
-                    <div class="description-content">
-                      <h3>More about <%=@listing.user.name%></h3>
-                      <p class="text-justify">
-                        <%=@listing.user.bio%>
-                      </p>
+                    <div class="description">
+                      <div class="description-content">
+                        <h3>More about <%=@listing.user.name%></h3>
+                        <p class="text-justify">
+                          <%=@listing.user.bio%>
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="booking">
-              <button type="button" class="btn btn-default" id="booking-button" onclick="toggleVisibility('sticky-form')">Book now</button>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="reviews">
-              ...
+              <div role="tabpanel" class="tab-pane" id="booking">
+                <button type="button" class="btn btn-yours" id="booking-button" onclick="toggleVisibility('sticky-form')">Book now</button>
+              </div>
+              <div role="tabpanel" class="tab-pane" id="reviews">
+                <div class="scrollable">
+                  <p>
+                    Where does it come from?
+
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+                    Where does it come from?
+
+                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="show-map col-sm-6 map-container">
+        <div class="show-map col-xs-12 col-sm-6 map-container">
           <div id="map" data-markers="<%= @markers.to_json %>"></div>
         </div>
       </div>
