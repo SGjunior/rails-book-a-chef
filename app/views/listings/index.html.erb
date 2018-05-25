@@ -8,7 +8,7 @@
 <!-- adding banner to the top of the page -->
 
 <div class="app mdl-shadow--2dp">
-  <div class="main" id="main">
+  <div class="main-index" id="main">
     <!-- STICKY FILTERS BAR -->
     <div id="index-filters" class="mdl-layout__header-row mdl-shadow--2dp filters-stick" style="margin-top: 10px;">
       <div class="mdl-layout-spacer"></div>
@@ -90,6 +90,7 @@
   const personCountElement = document.getElementById('person_count');
   const maxPriceElement = document.getElementById('max_price');
   const searchBar = document.getElementById('fixed-header-drawer-exp');
+  const listingContainer = document.querySelector('.listings');
   const listings = document.querySelectorAll('.listing.mdl-card.mdl-shadow--2dp');
 
   const filterResults = () => {
@@ -123,6 +124,11 @@
 
     });
   }
+
+
+
+
+
 
   maxPriceElement.addEventListener('input', () => { filterResults()});
   personCountElement.addEventListener('input', () => { filterResults()});
