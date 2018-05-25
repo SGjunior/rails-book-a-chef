@@ -1,0 +1,26 @@
+.nav-tabs {
+  border-bottom: 0 !important;
+}
+
+.nav-tabs > li:hover {
+  color: white;
+  border: 2px solid #B9C0DA;
+  background-color: #B9C0DA;
+  transition: background 0.5s ease;
+}
+
+.btn-yours {
+  color: #B9C0DA;
+  border: 1px solid #B9C0DA;
+  font-weight: bold;
+  padding:15px 25px;
+  border-radius: 5px
+}
+
+.btn-yours:hover {
+  color: white;
+  border: 2px solid #B9C0DA;
+  background-color: #B9C0DA;
+  transition: background 0.5s ease;
+}
+

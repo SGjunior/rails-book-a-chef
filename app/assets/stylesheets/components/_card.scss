@@ -1,6 +1,7 @@
-.card-wrapper {
+.card-wrapper ul {
   display: flex;
 }
+
 .card {
   flex: 1 1 auto;
   padding: 5px;
@@ -36,6 +37,8 @@
   position: absolute;
   bottom: 10px;
   left: 10px;
+  display: grid;
+  grid-template: auto;
 }
 .card-description h2 {
   font-size: 20px;

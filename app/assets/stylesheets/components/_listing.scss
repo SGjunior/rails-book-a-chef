@@ -30,9 +30,21 @@
 .listing-title {
   margin-top: 10px;
   font-weight: bold;
-
 }
 
 .listing:hover {
   opacity: 0.8;
 }
+
+.listing-description {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+}
+.listing-features {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+

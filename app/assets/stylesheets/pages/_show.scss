@@ -1,12 +1,31 @@
-.content {
+.show-details {
+  background-color: #B5C6D0;
+  min-height: 250px !important;
 }
 
-.listing-image {
-  position: relative;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
+.bg-show {
+  background: rgba(27, 90, 114, 0.6);
+  background: -moz-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 0%, rgba(181,198,208,1) 62%, rgba(224,239,249,1) 62%, rgba(224,239,249,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(242,246,248,1)), color-stop(0%, rgba(216,225,231,1)), color-stop(62%, rgba(181,198,208,1)), color-stop(62%, rgba(224,239,249,1)), color-stop(100%, rgba(224,239,249,1)));
+  background: -webkit-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 0%, rgba(181,198,208,1) 62%, rgba(224,239,249,1) 62%, rgba(224,239,249,1) 100%);
+  background: -o-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 0%, rgba(181,198,208,1) 62%, rgba(224,239,249,1) 62%, rgba(224,239,249,1) 100%);
+  background: -ms-linear-gradient(top, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 0%, rgba(181,198,208,1) 62%, rgba(224,239,249,1) 62%, rgba(224,239,249,1) 100%);
+  background: linear-gradient(to bottom, rgba(242,246,248,1) 0%, rgba(216,225,231,1) 0%, rgba(181,198,208,1) 62%, rgba(224,239,249,1) 62%, rgba(224,239,249,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9', GradientType=0 );
+}
+
+.main-wrapper {
+  .banner {
+    text-align: center;
+  }
+
+  .banner img {
+    display: inline-block;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+  }
 }
 
 .booking-info {
@@ -26,10 +45,51 @@
   display: inline-block;
 }
 
+.show-details {
+  /* flex: grow */;
+}
 
 .card-body ul {
    list-style: none;
    margin-left: 0;
-   padding-left: 1em;
-   text-indent: -1em;
+   padding: 1em;
+}
+
+.show-banner {
+  height: 600px;
+  background-size: cover;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: -5px;
+}
+
+.show-banner h1 {
+  font-size: 50px;
+  font-weight: 500;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  letter-spacing: 2px;
+}
+
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+.top-buffer {
+  margin-top: 49px;
+}
+
+#remove-padding-left {
+  padding-left: 0 !important;
+}
+
+.scrollable {
+    height: 250px !important; /* or any value */
+    overflow-y: auto;
 }
