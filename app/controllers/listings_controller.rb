@@ -62,11 +62,11 @@ class ListingsController < ApplicationController
   def destroy
     @listing = Listing.find(params[:id])
     authorize @listing
-    if @listing.destroy
-      redirect_to user_dashboard_path
-    else
-      redirect_to listings_path
-    end
+    # if @listing.destroy
+      # redirect_to user_dashboard_path
+    # else
+      # redirect_to listings_path
+    # end
   end
 
   private

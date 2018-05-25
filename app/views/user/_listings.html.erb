@@ -1,7 +1,7 @@
 <div class="listings">
       <!-- Generate the cards in here -->
         <% current_user.listings.each do |listing| %>
-          <div class="listing mdl-card mdl-shadow--2dp" listingdescription="<%= listing.user.name %><%= listing.description %> <%= listing.cuisine %>" listingppp="<%= listing.price_per_person %>" minpeople="<%= listing.min_party_size %>" maxpeople="<%= listing.max_party_size %>">
+          <div class="listing mdl-card mdl-shadow--2dp" listingdescription="<%= listing.user.name %><%= listing.description %> <%= listing.cuisine %>" listingppp="<%= listing.price_per_person %>" minpeople="<%= listing.min_party_size %>" maxpeople="<%= listing.max_party_size %>" data-listing-id="<%= listing.id %>">
             <%= link_to listing_path(listing.id) do %>
                 <% if listing.photo.url.nil? %>
                   <div class="listing-picture mdl-card__title" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://loremflickr.com/320/240/food');">
@@ -47,3 +47,23 @@
           </div>
         <% end %>
     </div>
+
+
+<script>
+// if(!event.mySecretVariableName) {
+//    event.preventDefault();
+// } else {
+//    return; // do nothing, let the event go
+// }
+
+  // Smooth scrolling on anchor link click
+  document.querySelectorAll('a[data-method="delete"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      this.parentElement.parentElement.remove();
+    });
+  });
+
+
+
+
+</script>

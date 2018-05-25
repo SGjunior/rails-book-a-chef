@@ -29,30 +29,32 @@
       </nav>
   </div>
   <main class="mdl-layout__content">
+    <!-- EDIT PROFILE TAB -->
     <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
       <div class="page-content">
-        <!-- Your content goes here -->
         <%= render 'devise/registrations/edit', resource_name: current_user, resource: @resource ||= User.new, devise_mapping: @devise_mapping ||= Devise.mappings[:user] %>
       </div>
     </section>
+    <!-- LISTINGS TAB -->
     <section class="mdl-layout__tab-panel" id="scroll-tab-2">
       <div class="page-content">
         <%= render 'user/listings' %>
       </div>
     </section>
+    <!-- BOOKINGS TAB -->
     <section class="mdl-layout__tab-panel" id="scroll-tab-3">
       <div class="page-content">
         <%= render 'user/bookings' %>
       </div>
     </section>
-
-      <% if current_user.listings.any? %>
+    <!-- SOIREES TAB -->
+    <% if current_user.listings.any? %>
       <section class="mdl-layout__tab-panel" id="scroll-tab-4">
         <div class="page-content">
           <%= render 'user/booking_chef' %>
         </div>
       </section>
-      <% end %>
+    <% end %>
 
 
     <!-- <section class="mdl-layout__tab-panel" id="scroll-tab-2">
