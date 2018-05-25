@@ -5,26 +5,11 @@
 }
 </style>
 <div class="col-xs-12 col-sm-6 col-sm-offset-3">
-  <ul class="demo-list-three mdl-list">
+
+  <ul class="demo-list-three mdl-list" style="margin-top: 10px;">
+    <h2 class="text-center">Your bookings</h2>
     <% current_user.bookings.each do |booking| %>
-    <li class="mdl-list__item mdl-list__item--three-line">
-      <span class="mdl-list__item-primary-content">
-        <i class="material-icons mdl-list__item-avatar">person</i>
-        <span>Booked with : <%= booking.listing.user.name %></span>
-        <span class="mdl-list__item-text-body">
-          <span>
-            <%= booking.reservation_date.strftime('%A, %b %d') %>, at <%= booking.reservation_time.strftime('%I:%M %p') %>
-            <br>
-            Guest count : <%= booking.guests_count %>, Price per person : <%= booking.listing.price_per_person %><i class="material-icons" style="font-size: 12px !important">attach_money</i>
-
-
-          </span>
-        </span>
-      </span>
-      <span class="mdl-list__item-secondary-content">
-        <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i></a>
-      </span>
-    </li>
+      <%= render 'user/booking_single', booking: booking %>
     <% end %>
   </ul>
 </div>
