@@ -5,7 +5,7 @@
   <div class="login-form mdl-shadow--2dp">
     <h2 style="text-align: center;">Welcome</h2>
     <% resource.valid? %>
-    <%= resource.errors.messages %>
+    <% resource.errors.messages %>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <input class="fancy-input" type="email" value="" name="user[email]" id="user_email" placeholder="Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
