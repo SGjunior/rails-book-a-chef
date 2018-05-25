@@ -35,10 +35,27 @@
   top: 9.1%;
   text-align: center;
   justify-content: center;
-  background-color: white;
+  background-color: rgba(224,239,249,.95);
   opacity: 0.8;
   width: 32%;
   visibility: hidden;
+  z-index: 99;
+}
+
+.btn-sticky {
+  background-color: rgba(27,90,114,.9);
+  color: white;
+  border: 1px solid #469AE0;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+
+.btn-sticky:hover {
+  color: white;
+  opacity: 1;
+  transition: background 0.5s ease;
 }
 
 .form-control {
