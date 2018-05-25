@@ -3,6 +3,8 @@ import "bootstrap";
 import { autocomplete } from '../components/autocomplete';
 autocomplete();
 
+import swal from 'sweetalert';
+
 
 // Get the navbar
 var stickyForm = document.getElementById("sticky-form");

@@ -1,0 +1,13 @@
+<% if @error.nil? %>
+
+  swal("Succesfully Deleted!", "<%= @listing.description %>", "success");
+  document.querySelector('[data-listing-id="<%= @listing.id %>"]').remove();
+
+<% else %>
+  swal("Delete Failed", "<%= @error %>", "error", {
+    dangerMode: true
+  });
+<% end %>
+
+
+
