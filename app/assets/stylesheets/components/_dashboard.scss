@@ -5,3 +5,27 @@ a.mdl-layout__tab {
 a.mdl-layout__tab:hover {
   color: white;
 }
+
+
+.booking-list-item:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.demo-card-wide.mdl-card {
+  width: 100%;
+}
+
+.chat-message-container {
+  width: 80%;
+  margin: 10px auto;
+  overflow: scroll;
+  max-height: 20vh;
+}
+
+.chat-message-right {
+  margin-right: 30px;
+}
+
+.chat-message-left {
+  margin-left: 30px;
+}
