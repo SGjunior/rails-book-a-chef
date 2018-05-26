@@ -5,7 +5,7 @@
         <% @booking = Booking.new(listing_id: @listing.id) %>
         <%= simple_form_for [@listing, @booking] do |f| %>
       <div class="mdl-card__actions form-holder">
-        <%= f.input :reservation_date, :input_html => { class: "form-inline"} %>
+        <input type="text" id="flatpickr-input" name="booking[reservation_date]">
         <%= f.input :reservation_time %>
         <%= f.input :guests_count %>
         <%= f.submit class: 'btn btn-sticky' %>

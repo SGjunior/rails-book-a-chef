@@ -22,3 +22,9 @@ function stickWhenScrolling() {
     stickyForm.classList.remove("sticky");
   }
 }
+
+
+$(document).ready(function(){
+  flatpickr('#flatpickr-input');
+  console.log('#flatpickr-input')
+});
