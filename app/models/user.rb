@@ -8,6 +8,7 @@ class User < ApplicationRecord
   has_many :listings
   has_many :bookings
   before_validation :strip_email
+
   after_create :send_welcome_email
 
 #   validates :name, presence: true, uniqueness: true
@@ -27,6 +28,7 @@ end
 
 def send_welcome_email
   # FakeMailer.instance.mail(email, "Welcome #{username}!")
+  UserMailer.welcome(self).deliver_now
 end
 
 def age

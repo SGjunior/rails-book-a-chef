@@ -1,0 +1,16 @@
+<h1>User#welcome</h1>
+
+<p> Glad to have you <%= @user.email %></p>
+
+<p>
+  <%= @greeting %>, find me in app/views/user_mailer/welcome.html.erb
+</p>
+
+<p>This is test from Simon right now</p>
+
+
+<!-- has to be the full path, not relative path because the root of the address is not going to be on our server at that time -->
+<!-- so use root_url instead of root_path -->
+<p><%= link_to "Come back to our website", root_url %></p>
+<!-- which would be the same as saying -->
+<!-- <p><a href="localhost:3000/confirmations:/?token=1f234123l4kjnerr9aasd2aF@"></a></p> -->
