@@ -1,6 +1,5 @@
 .form-control.mx-1.date.required.form-inline {
   display: inline-block;
-  width: 32%;
 }
 
 .form-control.mx-1.time.required {
@@ -23,21 +22,46 @@
   margin-right: auto;
 }
 
-.sticky {
-  position: fixed;
-  width: 100%;
-}
-
-#sticky-form {
-  width: 32%;
-  top: 10%;
-  text-align: center;
-  justify-content: center;
-  background-color: white;
-  opacity: 0.8;
-}
-
 .form-head {
   text-align: center !important;
   margin: 0px auto !important;
+}
+
+.sticky {
+  position: fixed;
+}
+
+#sticky-form {
+  top: 9.1%;
+  text-align: center;
+  justify-content: center;
+  background-color: rgba(224,239,249,.95);
+  opacity: 0.9;
+  width: 32%;
+  visibility: hidden;
+  z-index: 99;
+}
+
+.btn-sticky {
+  background-color: rgba(27,90,114,.9);
+  color: white;
+  border: 1px solid #469AE0;
+  padding: 15px 25px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+}
+
+.btn-sticky:hover {
+  color: white;
+  opacity: 1;
+  transition: background 0.5s ease;
+}
+
+.form-control {
+  box-shadow:   1px 1px 10px rgba(0, 0, 0, 0.1);
+}
+
+.edit-profile-form input.fancy-input {
+  width: 100%;
 }

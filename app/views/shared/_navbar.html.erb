@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "logo.png", height: 50 %>
+    <i class="fas fa-utensils logo"></i>
   <% end %>
 
   <!-- Right Navigation -->
@@ -10,7 +10,7 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
-      <%= link_to "Create Listing", new_listing_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Create Listing", new_listing_path, class: "navbar-wagon-item navbar-wagon-link btn-sticky" %>
       <!-- <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %> -->
       <!-- <%= link_to "Messages", "#", class: "navbar-wagon-item navbar-wagon-link" %> -->
 
@@ -44,7 +44,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link btn-sticky" %>
     <% end %>
   </div>
 

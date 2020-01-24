@@ -1,16 +1,21 @@
 import "bootstrap";
 
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {myFunction()};
+import { autocomplete } from '../components/autocomplete';
+autocomplete();
+
+import swal from 'sweetalert';
+
 
 // Get the navbar
 var stickyForm = document.getElementById("sticky-form");
 
 // Get the offset position of the navbar
-var sticky = stickyForm.offsetTop;
-
+if (stickyForm) {
+  var sticky = stickyForm.offsetTop;
+  window.onscroll = function() {stickWhenScrolling()};
+}
 // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-function myFunction() {
+function stickWhenScrolling() {
   if (window.pageYOffset >= sticky) {
     stickyForm.classList.add("sticky")
   } else {

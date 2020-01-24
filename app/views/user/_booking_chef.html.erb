@@ -1,0 +1,62 @@
+<!-- Three Line List with secondary info and action -->
+<style>
+.demo-list-three {
+  width: 650px;
+}
+</style>
+<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+  <h1>Upcoming performances :</h1>
+  <% current_user.listings.each do |listing| %>
+  <h2><%= listing.description %></h2>
+    <!-- <ul class="demo-list-three mdl-list"> -->
+      <% listing.bookings.each do |booking| %>
+      <div class="mdl-card__supporting-text" style="width: 100%;">
+      <!-- <li class="mdl-list__item mdl-list__item--three-line"> -->
+
+        <span class="mdl-list__item-primary-content" onclick="toggleVisibility('chat-<%= booking.id %>')">
+          <!-- <i class="material-icons mdl-list__item-avatar">person</i> -->
+          <%= image_tag booking.user.photo.url(:bright_face), { class: 'mdl-list__item-avatar' } %>
+          <span>Booked with : <%= booking.user.name %></span>
+          <span class="mdl-list__item-text-body">
+            <span>
+              <%= booking.reservation_date.strftime('%A, %b %d') %>, at <%= booking.reservation_time.strftime('%I:%M %p') %>
+              <br>
+              Guest count : <%= booking.guests_count %>, Price per person : <%= booking.listing.price_per_person %><i class="material-icons" style="font-size: 12px !important">attach_money</i>
+            </span>
+          </span>
+        </span>
+        <span class="mdl-list__item-secondary-content">
+          <!-- <a class="mdl-list__item-secondary-action" href="#"><i class="material-icons">star</i> -->
+            <span class="mdl-list__item-secondary-action text-center">
+              <strong class="text-success">Accepted</strong><br><br>
+              <span><%= (booking.guests_count.to_i * booking.listing.price_per_person.to_i).to_s %><i class="material-icons" style="font-size: 13px;">attach_money</i>
+              </span>
+            </span>
+          </span>
+
+
+
+          <div class="chat-message-container mdl-shadow--2dp" id="chat-<%= booking.id %>">
+            <%= render 'user/booking_messages', booking: booking %>
+          </div>
+
+            <%= form_for [booking.listing, booking, @message] do |f| %>
+              <div class="row">
+                <div class="col-xs-7 col-xs-offset-1">
+                  <div class="mdl-textfield mdl-js-textfield">
+                    <%= f.text_field :content, class: 'mdl-textfield__input' %>
+                    <label class="mdl-textfield__label" for="sample5">Enter your message...</label>
+                  </div>
+                </div>
+                <div class="col-xs-2">
+                 <%= f.submit 'Send', { class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', remote: true, style: 'width: 150px; margin-top: 15px;' } %>
+               </div>
+             </div>
+
+          <% end %>
+        <!-- </li> -->
+      </div>
+       <% end %>
+     <!-- </ul> -->
+   <% end %>
+ </div>

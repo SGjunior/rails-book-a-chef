@@ -3,36 +3,88 @@
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
-      <span class="mdl-layout-title"><%= current_user.name %></span>
+      <span class="mdl-layout-title"><%= current_user.name.capitalize %>'s Dashboard</span>
     </div>
+
     <!-- Tabs -->
     <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
-      <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Profile</a>
-      <a href="#scroll-tab-2" class="mdl-layout__tab">Listings</a>
-
+      <a id="dash-tab-1" href="#scroll-tab-1" class="mdl-layout__tab is-active">Profile</a>
+      <a id="dash-tab-2"href="#scroll-tab-2" class="mdl-layout__tab">Listings</a>
+      <a id="dash-tab-3" href="#scroll-tab-3" class="mdl-layout__tab">Bookings</a>
+      <% if current_user.listings.any? %>
+        <a id="dash-tab-4" href="#scroll-tab-4" class="mdl-layout__tab">
+          <span class="mdl-badge" data-badge="2">Your soirées</span>
+        </a>
+      <% end %>
     </div>
+
+
   </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
+    <span class="mdl-layout-title">My Account</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Billing</a>
+        <a class="mdl-navigation__link" href="">Contact</a>
+        <a class="mdl-navigation__link" href="">About</a>
+      </nav>
   </div>
   <main class="mdl-layout__content">
+    <!-- EDIT PROFILE TAB -->
     <section class="mdl-layout__tab-panel is-active" id="scroll-tab-1">
       <div class="page-content">
-        <!-- Your content goes here -->
         <%= render 'devise/registrations/edit', resource_name: current_user, resource: @resource ||= User.new, devise_mapping: @devise_mapping ||= Devise.mappings[:user] %>
       </div>
     </section>
+    <!-- LISTINGS TAB -->
     <section class="mdl-layout__tab-panel" id="scroll-tab-2">
       <div class="page-content">
         <%= render 'user/listings' %>
       </div>
     </section>
+    <!-- BOOKINGS TAB -->
+    <section class="mdl-layout__tab-panel" id="scroll-tab-3">
+      <div class="page-content">
+        <%= render 'user/bookings' %>
+      </div>
+    </section>
+    <!-- SOIREES TAB -->
+    <% if current_user.listings.any? %>
+      <section class="mdl-layout__tab-panel" id="scroll-tab-4">
+        <div class="page-content">
+          <%= render 'user/booking_chef' %>
+        </div>
+      </section>
+    <% end %>
 
 
     <!-- <section class="mdl-layout__tab-panel" id="scroll-tab-2">
       <div class="page-content">Your content goes here</div>
     </section> -->
 
-
   </main>
 </div>
+
+
+<script>
+  const setActiveTab = (tab_id) => {
+    localStorage.setItem("activeTab", tab_id);
+  }
+
+  document.querySelectorAll('.mdl-layout__tab').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      setActiveTab(this.id)
+    });
+  });
+
+  window.onload = function() {
+    if (typeof localStorage.activeTab !== 'undefined') {
+      const activeTab = document.getElementById(localStorage.activeTab);
+      console.log(localStorage.activeTab);
+      console.log(activeTab);
+
+      setTimeout(function() {
+         activeTab.click();
+       }, 100);
+    };
+  }
+</script>

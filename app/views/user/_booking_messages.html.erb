@@ -1,0 +1,15 @@
+<% booking.messages.each do |message| %>
+
+  <div class="row">
+    <% if message.user_id == current_user.id %>
+      <!-- Basic Chip -->
+      <span class="mdl-chip chat-message-right" style="float: right !important">
+          <span class="mdl-chip__text"><%= message.content %></span>
+      </span>
+    <% else %>
+      <span class="mdl-chip chat-message-left" style="float: left !important; background-color: #4842B7 !important; color: white">
+          <span class="mdl-chip__text"><%= message.content %></span>
+      </span>
+    <% end %>
+  </div>
+<% end %>

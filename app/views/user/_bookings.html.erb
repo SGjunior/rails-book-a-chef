@@ -1,0 +1,15 @@
+<!-- Three Line List with secondary info and action -->
+<style>
+.demo-list-three {
+  width: 650px;
+}
+</style>
+<div class="col-xs-12 col-sm-6 col-sm-offset-3">
+
+  <ul class="demo-list-three mdl-list" style="margin-top: 10px;">
+    <h2 class="text-center">Your bookings</h2>
+    <% current_user.bookings.each do |booking| %>
+      <%= render 'user/booking_single', booking: booking %>
+    <% end %>
+  </ul>
+</div>

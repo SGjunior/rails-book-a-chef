@@ -1,0 +1,14 @@
+  <%= form_for [booking.listing, booking, message] do |f| %>
+
+  <div class="row">
+    <div class="col-xs-7 col-xs-offset-1">
+      <div class="mdl-textfield mdl-js-textfield">
+        <%= f.text_field :content, class: 'mdl-textfield__input' %>
+        <label class="mdl-textfield__label" for="sample5">Enter your message...</label>
+      </div>
+    </div>
+    <div class="col-xs-2">
+     <%= f.submit 'Send', { class: 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', remote: true, style: 'width: 150px; margin-top: 15px;' } %>
+   </div>
+ </div>
+ <% end %>

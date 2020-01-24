@@ -1,0 +1,102 @@
+.show-details {
+  background-color: rgba(27,90,114,.75);
+  min-height: 300px !important;
+  max-height: 350px !important;
+  border-radius:  15px;
+}
+
+.show-details:hover {
+  background-color: rgba(27,90,114,.9)
+}
+.bg-show {
+  background: rgb(221,255,252); /* Old browsers */
+  background: -moz-linear-gradient(top, rgb(221,255,252) 37%, rgb(53,106,160) 81%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgb(221,255,252) 37%,rgb(53,106,160) 81%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgb(221,255,252) 37%,rgb(53,106,160) 81%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ddfffc', endColorstr='#356aa0',GradientType=0 ); /* IE6-9 */
+  padding: 0px;
+}
+
+.main-wrapper {
+  .banner {
+    text-align: center;
+  }
+
+  .banner img {
+    display: inline-block;
+    top: 0;
+    left: 0;
+    height: auto;
+    width: 100%;
+  }
+}
+
+.booking-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+#user-upload {
+}
+
+.listing-info {
+  background-color: yellow;
+}
+
+.listing-features {
+  display: inline-block;
+}
+
+.card-body ul {
+   list-style: none;
+   margin-left: 0;
+   padding: 1em;
+}
+
+.show-banner {
+  height: 95vh;
+  background-size: cover;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0;
+}
+
+.show-banner h1 {
+  font-size: 50px;
+  font-weight: 500;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  letter-spacing: 10px;
+  margin-top: 100px;
+}
+
+.banner p {
+  font-size: 20px;
+  font-weight: lighter;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 50px;
+  letter-spacing: 2px;
+}
+
+.top-buffer {
+  margin-top: -105px;
+}
+
+#remove-padding-left {
+  padding-left: 0 !important;
+  top: 55px;
+  z-index: 5;
+}
+
+.scrollable {
+    height: 250px !important; /* or any value */
+    overflow-y: auto;
+}
+
+.map-buffer {
+  margin-top: -50px;
+}
+
+
